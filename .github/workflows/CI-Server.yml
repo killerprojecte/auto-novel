@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - server/**
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-server
@@ -40,12 +41,12 @@ jobs:
         with:
           context: server
           push: true
-          tags: ghcr.io/auto-novel/auto-novel-server:latest
+          tags: ghcr.io/killerprojecte/auto-novel-server:latest
 
       - name: Delete all containers from repository without tags
         uses: Chizkiyahu/delete-untagged-ghcr-action@v2
         with:
-          token: ${{ secrets.DELETE_PACKAGES_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           untagged_only: true

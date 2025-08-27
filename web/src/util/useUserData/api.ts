@@ -1,8 +1,6 @@
 import ky from 'ky';
 
-export const AuthUrl = window.location.hostname.includes('fishhawk.top')
-  ? 'https://auth.fishhawk.top'
-  : 'https://auth.novelia.cc';
+export const AuthUrl = 'https://novel-auth.43.al';
 
 const client = ky.create({
   prefixUrl: AuthUrl + '/api/v1',
